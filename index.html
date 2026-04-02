@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceruti Informática - Soluções Profissionais em TI</title>
+    <meta name="description" content="Ceruti Informática - Suporte técnico 24/7, redes seguras, consultoria TI e soluções profissionais em informática. Brasília - DF.">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+      :root {
+        --primary: #0066ff;
+        --secondary: #00d4ff;
+        --dark: #001a4d;
+        --light: #f0f4ff;
+        --white: #ffffff;
+        --gray: #666666;
+        --text: #222222;
+        --accent: #F59E0B;
+        --shadow: 0 10px 40px rgba(0, 102, 255, 0.15);
+        --shadow-hover: 0 20px 60px rgba(0, 102, 255, 0.25);
+      }
+
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { min-height: 100vh; background: var(--white); font-family: 'Poppins', sans-serif; color: var(--text); overflow-x: hidden; }
+      .snow { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 10; }
+      
+      header { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); box-shadow: var(--shadow); z-index: 100; padding: 1.2rem 2rem; }
+      nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+      .logo { font-size: 1.8rem; font-weight: 700; color: var(--primary); display: flex; align-items: center; gap: 0.3rem; }
+      .logo i { font-size: 2rem; transform: rotate(-45deg); }
+      .nav-links { display: flex; list-style: none; gap: 2.5rem; }
+      .nav-links a { text-decoration: none; color: var(--text); font-weight: 500; transition: color 0.3s; }
+      .nav-links a:hover { color: var(--primary); }
+      .contact-btn { background: var(--primary); color: white; padding: 0.8rem 1.8rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s; }
+      .contact-btn:hover { background: var(--dark); transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+      
+      .hero { text-align: center; padding: 200px 2rem 4rem; max-width: 1200px; margin: 0 auto; position: relative; z-index: 20; }
+      .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; color: var(--dark); margin-bottom: 1.5rem; line-height: 1.2; background: linear-gradient(135deg, var(--dark), var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+      .hero p { font-size: 1.3rem; color: var(--gray); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+      .hero-rating { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 2rem; font-size: 1.1rem; color: var(--text); }
+      .rating-stars { color: #FFD700; font-size: 1.3rem; }
+      
+      .cta-buttons { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+      .btn-primary { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 1.2rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 0.8rem; box-shadow: var(--shadow); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 2px solid transparent; }
+      .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 25px 60px rgba(245, 158, 11, 0.4); background: linear-gradient(135deg, var(--dark), var(--primary)); border: 2px solid var(--accent); }
+      .btn-secondary { background: linear-gradient(135deg, var(--light), rgba(245, 158, 11, 0.1)); color: var(--primary); padding: 1.2rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 0.8rem; transition: all 0.3s; border: 2px solid var(--accent); }
+      .btn-secondary:hover { background: var(--white); box-shadow: var(--shadow); }
+      
+      .services { padding: 5rem 2rem; background: linear-gradient(135deg, var(--light) 0%, var(--white) 100%); position: relative; z-index: 20; }
+      .container { max-width: 1200px; margin: 0 auto; }
+      .section-title { text-align: center; font-size: 2.8rem; font-weight: 700; color: var(--dark); margin-bottom: 1rem; background: linear-gradient(135deg, var(--dark), var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+      .section-subtitle { text-align: center; font-size: 1.1rem; color: var(--gray); margin-bottom: 3.5rem; position: relative; padding-bottom: 1rem; }\n      .section-subtitle::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 2px; }
+      .services-grid { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; }
+      .service-card { background: var(--white); padding: 2.5rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0, 102, 255, 0.08); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); flex: 1; min-width: 280px; max-width: 350px; text-align: center; border-top: 4px solid var(--primary); border-left: 4px solid var(--secondary); }
+      .service-card:hover { transform: translateY(-10px); box-shadow: 0 25px 60px rgba(245, 158, 11, 0.3); border-top: 4px solid var(--accent); border-left: 4px solid var(--secondary); }
+      .service-icon { font-size: 3rem; color: var(--primary); margin-bottom: 1.5rem; transition: all 0.3s; }\n      .service-card:nth-child(3n) .service-icon { color: var(--accent); }\n      .service-card:nth-child(3n+2) .service-icon { color: var(--secondary); }
+      .service-card h3 { font-size: 1.5rem; color: var(--dark); margin-bottom: 1rem; }
+      .service-card p { color: var(--gray); line-height: 1.6; }
+      
+      .about { padding: 5rem 2rem; position: relative; z-index: 20; overflow: hidden; }
+      .about::before { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 40%; background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(245, 158, 11, 0.15) 100%); z-index: 0; }
+      .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+      .about-text h2 { font-size: 2.5rem; color: var(--dark); margin-bottom: 1.5rem; }
+      .about-text p { color: var(--gray); font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; }
+      .features-list { display: grid; gap: 1rem; margin-top: 2rem; }
+      .feature-item { display: flex; align-items: center; gap: 1rem; color: var(--text); font-weight: 500; }
+      .feature-icon { width: 40px; height: 40px; background: linear-gradient(135deg, var(--light), rgba(245, 158, 11, 0.15)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 1.3rem; flex-shrink: 0; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2); }
+      .about-image { display: none; }
+      
+      .cta-final { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%); color: white; padding: 4rem 2rem; text-align: center; position: relative; z-index: 20; }
+      .cta-final h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+      .cta-final p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.95; }
+      
+      footer { background: var(--dark); color: white; padding: 3rem 2rem; position: relative; z-index: 20; }
+      .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+      .footer-col h4 { margin-bottom: 1rem; color: var(--accent); font-weight: 700; }
+      .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+      .footer-col a { color: #ddd; text-decoration: none; transition: color 0.3s; }
+      .footer-col a:hover { color: var(--secondary); }
+      .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.2); padding-top: 2rem; text-align: center; color: #bbb; }
+      
+      @media (max-width: 768px) {
+        nav { flex-direction: column; gap: 1rem; }
+        .nav-links { gap: 1rem; }
+        .hero { padding: 150px 1.5rem 2rem; }
+        .hero h1 { font-size: 2rem; }
+        .about-content { grid-template-columns: 1fr; }
+        .cta-buttons { flex-direction: column; }
+        .btn-primary, .btn-secondary { width: 100%; max-width: 300px; margin: 0 auto; }
+      }
+    </style>
+</head>
+<body>
+    <canvas class="snow"></canvas>
+
+    <header>
+      <nav>
+        <div class="logo"><i class="fas fa-wifi"></i> Ceruti Informática</div>
+        <ul class="nav-links">
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+        <a href="#contato" class="contact-btn">Fale Conosco</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Soluções Profissionais em Informática</h1>
+      <p>Ceruti Informática - Impressão de Projetos, Suporte Técnico e Consultoria em TI</p>
+      <div class="hero-rating">
+        <span class="rating-stars">★★★★★</span>
+        <span><strong>4,9</strong> (87 avaliações)</span>
+      </div>
+      <div class="cta-buttons">
+        <a href="#contato" class="btn-primary"><i class="fas fa-phone-alt"></i> Solicitar Orçamento</a>
+        <a href="#servicos" class="btn-secondary"><i class="fas fa-arrow-right"></i> Conheça Nossos Serviços</a>
+      </div>
+    </section>
+
+    <section class="services" id="servicos">
+      <div class="container">
+        <h2 class="section-title">Nossos Serviços</h2>
+        <p class="section-subtitle">Soluções completas para otimizar sua infraestrutura de TI</p>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-print"></i></div>
+            <h3>Impressão de Projetos</h3>
+            <p>Plotagem de projetos em alta qualidade (A0, A1, A2, A3, A4) com tones e cartuchos de primeira linha.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-headset"></i></div>
+            <h3>Suporte Técnico 24/7</h3>
+            <p>Atendimento prioritário com resposta imediata para resolução de problemas, garantindo continuidade operacional.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-lock"></i></div>
+            <h3>Segurança da Informação</h3>
+            <p>Proteção contra ameaças cibernéticas com firewall, antivírus e políticas de segurança robustas.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-tools"></i></div>
+            <h3>Manutenção e Reparo</h3>
+            <p>Conserto de notebooks e celulares, limpeza preventiva, upgrade de equipamentos e visita técnica.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="sobre">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>Quem Somos</h2>
+          <p>Ceruti Informática é uma empresa especializada em soluções de informática com mais de 10 anos de experiência no mercado. Oferecemos serviços de qualidade superior em Brasília - DF.</p>
+          <p>Especializados em impressão de projetos de alta qualidade (A0, A1, A2, A3 e A4), consultoria em TI, suporte técnico e manutenção de equipamentos.</p>
+          <div class="features-list">
+            <div class="feature-item"><div class="feature-icon"><i class="fas fa-check"></i></div><span>Impressão de projetos em alta qualidade</span></div>
+            <div class="feature-item"><div class="feature-icon"><i class="fas fa-check"></i></div><span>Suporte técnico 24/7</span></div>
+            <div class="feature-item"><div class="feature-icon"><i class="fas fa-check"></i></div><span>Conserto de notebooks e celulares</span></div>
+            <div class="feature-item"><div class="feature-icon"><i class="fas fa-check"></i></div><span>Suporte continuado e preventivo</span></div>
+          </div>
+        </div>
+        <div class="about-image"><i class="fas fa-server"></i></div>
+      </div>
+    </section>
+
+    <section class="cta-final" id="contato">
+      <h2>Pronto para crescer?</h2>
+      <p>Entre em contato conosco e descubra como podemos impulsionar seu negócio com tecnologia.</p>
+      <div style="margin-top: 2rem;">
+        <a href="https://wa.me/5561995549320" class="btn-primary"><i class="fab fa-whatsapp"></i> WhatsApp (61) 99554-9320</a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-col">
+          <h4><i class="fas fa-laptop-code"></i> Ceruti Informática</h4>
+          <p>Impressão de projetos, suporte técnico 24/7 e soluções profissionais em informática para empresas e indivíduos.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Links Rápidos</h4>
+          <ul>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <ul>
+            <li><a href="tel:+5561995549320">(61) 99554-9320</a></li>
+            <li><a href="mailto:contato@ceruti.com.br">contato@ceruti.com.br</a></li>
+            <li>Condomínio San Diego</li>
+            <li>Av. Comercial Loja 07</li>
+            <li>Jardim Botânico - Brasília - DF</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2024 LC Tec - Todos os direitos reservados.</p></div>
+    </footer>
+
+    <script>
+      const canvas = document.querySelector('.snow');
+      const ctx = canvas.getContext('2d');
+      let width = window.innerWidth;
+      let height = window.innerHeight;
+      let smallAndroids = [];
+      let staticAndroidBg = null;
+      let androidImg1 = null;
+      let androidImg2 = null;
+
+      function resize() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+      }
+
+      window.addEventListener('resize', resize);
+
+      function loadAndroidImages() {
+        return new Promise((resolve) => {
+          androidImg1 = new Image();
+          androidImg2 = new Image();
+          let loaded = 0;
+          
+          androidImg1.onload = () => {
+            loaded++;
+            if (loaded === 2) resolve();
+          };
+          androidImg2.onload = () => {
+            loaded++;
+            if (loaded === 2) resolve();
+          };
+          
+          androidImg1.src = 'androide1.png';
+          androidImg2.src = 'androide2.png';
+        });
+      }
+
+      function createSmallAndroid() {
+        return {
+          x: Math.random() * width,
+          y: Math.random() * -height * 2,
+          size: Math.random() * 25 + 20,
+          speed: Math.random() * 1 + 0.5,
+          opacity: 0.6 + Math.random() * 0.3,
+          rotation: Math.random() * Math.PI * 2,
+          rotationSpeed: (Math.random() - 0.5) * 0.1
+        };
+      }
+
+      function createSmallAndroids() {
+        const androids = [];
+        for (let i = 0; i < 5; i++) {
+          androids.push(createSmallAndroid());
+        }
+        return androids;
+      }
+
+
+
+      function drawSnowflakes() {
+        ctx.clearRect(0, 0, width, height);
+        
+        // Desenhar Android estático grande no fundo
+        if (staticAndroidBg && androidImg1) {
+          ctx.save();
+          ctx.globalAlpha = staticAndroidBg.opacity;
+          ctx.drawImage(androidImg1, staticAndroidBg.x - staticAndroidBg.width / 2, staticAndroidBg.y - staticAndroidBg.height / 2, staticAndroidBg.width, staticAndroidBg.height);
+          ctx.restore();
+        }
+        
+
+
+        // Desenhar pequenos Androids caindo
+        for (let android of smallAndroids) {
+          if (androidImg2) {
+            ctx.save();
+            ctx.translate(android.x, android.y);
+            ctx.rotate(android.rotation);
+            ctx.globalAlpha = android.opacity;
+            ctx.drawImage(androidImg2, -android.size / 2, -android.size / 2, android.size, android.size);
+            ctx.restore();
+          }
+        }
+        
+      }
+
+
+
+      function updateSmallAndroids() {
+        for (let android of smallAndroids) {
+          android.y += android.speed;
+          android.x += Math.sin(android.y / 30) * 0.4;
+          android.rotation += android.rotationSpeed;
+          
+          if (android.y > height) {
+            Object.assign(android, createSmallAndroid());
+          }
+        }
+      }
+
+
+
+      function loop() {
+        drawSnowflakes();
+        updateSmallAndroids();
+        requestAnimationFrame(loop);
+      }
+
+      function init() {
+        resize();
+        smallAndroids = createSmallAndroids();
+        
+        // Criar Android estático grande no fundo
+        const bgSize = Math.min(width, height) * 0.3;
+        staticAndroidBg = {
+          x: width * 0.8,
+          y: height * 0.65,
+          width: bgSize,
+          height: bgSize,
+          opacity: 0.85
+        };
+        
+        loop();
+      }
+
+      // Carregar imagens e iniciar
+      loadAndroidImages().then(() => {
+        init();
+      });
+    </script>
+</body>
+</html>
